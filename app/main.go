@@ -1,9 +1,12 @@
 package main
 
-import "fmt"
-
-import "rsc.io/quote"
+import (
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println(quote.Go())
+	router := gin.Default()
+	router.GET("/albuns", getAlbums)
+	router.POST("/album", postAlbums)
+	router.Run("localhost:8080")
 }
